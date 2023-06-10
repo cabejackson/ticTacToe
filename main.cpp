@@ -20,8 +20,12 @@ void PlayerInput(){
     cout << "Enter a number from the field:";
     cin >> a;
 
-    if (a == 1)
-        matrix[0][0] = player;
+    if (a == 1){
+        if (matrix[0][0] == '1')
+            matrix[0][0] = player;
+        else
+            cout << "Field is already in use. Try again!" << endl;
+    }
     else if (a == 2)
         matrix[0][1] = player;
     else if (a == 3)
