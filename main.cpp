@@ -40,6 +40,13 @@ void input(){
         matrix[2][2] = player;
 }
 
+void TogglePlayer(){
+    if (player == 'X')
+        player = 'O';
+    else
+        player = 'X';
+}
+
 int main() {
     Draw();
     return 0;
