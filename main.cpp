@@ -3,8 +3,7 @@ using namespace std;
 
 char matrix[3][3] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 char player = 'X';
-//draws the gameboard
-void Draw(){
+void DrawGameboard(){
     cout << "Tic Tac Toe v1.0" << endl;
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
@@ -14,8 +13,7 @@ void Draw(){
     }
 }
 
-//takes in user input
-void Input(){
+void PlayerInput(){
     int a;
     cout << "Enter a number from the field:";
     cin >> a;
@@ -100,10 +98,10 @@ char Win(){
 }
 
 int main() {
-    Draw();
+    DrawGameboard();
     while(1){
-        Input();
-        Draw();
+        PlayerInput();
+        DrawGameboard();
         if(Win() == 'X') {
             cout << "Player X wins!!" << endl;
             break;
