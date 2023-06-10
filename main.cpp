@@ -47,12 +47,73 @@ void TogglePlayer(){
         player = 'X';
 }
 
+char Win(){
+
+    //1st player
+    //rows
+    if (matrix[0][0] == 'X' && matrix[0][1] == 'X' && matrix[0][2] == 'X')
+        return 'X';
+    if (matrix[1][0] == 'X' && matrix[1][1] == 'X' && matrix[1][2] == 'X')
+        return 'X';
+    if (matrix[2][0] == 'X' && matrix[2][1] == 'X' && matrix[2][2] == 'X')
+        return 'X';
+
+    //columns
+    if (matrix[0][0] == 'X' && matrix[1][0] == 'X' && matrix[2][0] == 'X')
+        return 'X';
+    if (matrix[0][1] == 'X' && matrix[1][1] == 'X' && matrix[2][1] == 'X')
+        return 'X';
+    if (matrix[0][2] == 'X' && matrix[1][2] == 'X' && matrix[2][2] == 'X')
+        return 'X';
+
+    //diagonals
+    if (matrix[0][0] == 'X' && matrix[1][1] == 'X' && matrix[2][2] == 'X')
+        return 'X';
+    if (matrix[2][0] == 'X' && matrix[1][1] == 'X' && matrix[0][2] == 'X')
+        return 'X';
+
+    //2nd player
+    //rows
+    if (matrix[0][0] == 'O' && matrix[0][1] == 'O' && matrix[0][2] == 'O')
+        return 'O';
+    if (matrix[1][0] == 'O' && matrix[1][1] == 'O' && matrix[1][2] == 'O')
+        return 'O';
+    if (matrix[2][0] == 'O' && matrix[2][1] == 'O' && matrix[2][2] == 'O')
+        return 'O';
+
+    //columns
+    if (matrix[0][0] == 'O' && matrix[1][0] == 'O' && matrix[2][0] == 'O')
+        return 'O';
+    if (matrix[0][1] == 'O' && matrix[1][1] == 'O' && matrix[2][1] == 'O')
+        return 'O';
+    if (matrix[0][2] == 'O' && matrix[1][2] == 'O' && matrix[2][2] == 'O')
+        return 'O';
+
+    //diagonals
+    if (matrix[0][0] == 'O' && matrix[1][1] == 'O' && matrix[2][2] == 'O')
+        return 'O';
+    if (matrix[2][0] == 'O' && matrix[1][1] == 'O' && matrix[0][2] == 'O')
+        return 'O';
+
+    return '/';
+
+}
+
 int main() {
     Draw();
     while(1){
         Input();
         Draw();
-        TogglePlayer();
+        if(Win() == 'X') {
+            cout << "Player X wins!!" << endl;
+            break;
+        }
+        else if(Win() == 'O') {
+            cout << "Player O wins!!" << endl;
+            break;
+        }
+        else
+            TogglePlayer();
     }
     return 0;
 }
