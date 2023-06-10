@@ -15,7 +15,7 @@ void Draw(){
 }
 
 //takes in user input
-void input(){
+void Input(){
     int a;
     cout << "Enter a number from the field:";
     cin >> a;
@@ -49,5 +49,10 @@ void TogglePlayer(){
 
 int main() {
     Draw();
+    while(1){
+        Input();
+        Draw();
+        TogglePlayer();
+    }
     return 0;
 }
