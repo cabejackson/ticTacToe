@@ -17,7 +17,7 @@ void DrawGameboard(){
 
 void PlayerInput(){
     int a;
-    cout << "Enter a number from the field:";
+    cout << "It's " << player << " turn. Enter a number from the field:";
     cin >> a;
 
     if (a == 1){
@@ -162,7 +162,6 @@ int main() {
             cout << "The game is a draw!" << endl;
             break;
         }
-
         else
             TogglePlayer();
     }
