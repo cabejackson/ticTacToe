@@ -95,54 +95,22 @@ void TogglePlayer(){
 
 char Win(){
 
-    //1st player
-    //rows
-    if (matrix[0][0] == 'X' && matrix[0][1] == 'X' && matrix[0][2] == 'X')
-        return 'X';
-    if (matrix[1][0] == 'X' && matrix[1][1] == 'X' && matrix[1][2] == 'X')
-        return 'X';
-    if (matrix[2][0] == 'X' && matrix[2][1] == 'X' && matrix[2][2] == 'X')
-        return 'X';
+    char winner = 'N'; //why does this need to be set w/ a default value?
 
-    //columns
-    if (matrix[0][0] == 'X' && matrix[1][0] == 'X' && matrix[2][0] == 'X')
-        return 'X';
-    if (matrix[0][1] == 'X' && matrix[1][1] == 'X' && matrix[2][1] == 'X')
-        return 'X';
-    if (matrix[0][2] == 'X' && matrix[1][2] == 'X' && matrix[2][2] == 'X')
-        return 'X';
-
-    //diagonals
-    if (matrix[0][0] == 'X' && matrix[1][1] == 'X' && matrix[2][2] == 'X')
-        return 'X';
-    if (matrix[2][0] == 'X' && matrix[1][1] == 'X' && matrix[0][2] == 'X')
-        return 'X';
-
-    //2nd player
-    //rows
-    if (matrix[0][0] == 'O' && matrix[0][1] == 'O' && matrix[0][2] == 'O')
-        return 'O';
-    if (matrix[1][0] == 'O' && matrix[1][1] == 'O' && matrix[1][2] == 'O')
-        return 'O';
-    if (matrix[2][0] == 'O' && matrix[2][1] == 'O' && matrix[2][2] == 'O')
-        return 'O';
-
-    //columns
-    if (matrix[0][0] == 'O' && matrix[1][0] == 'O' && matrix[2][0] == 'O')
-        return 'O';
-    if (matrix[0][1] == 'O' && matrix[1][1] == 'O' && matrix[2][1] == 'O')
-        return 'O';
-    if (matrix[0][2] == 'O' && matrix[1][2] == 'O' && matrix[2][2] == 'O')
-        return 'O';
-
-    //diagonals
-    if (matrix[0][0] == 'O' && matrix[1][1] == 'O' && matrix[2][2] == 'O')
-        return 'O';
-    if (matrix[2][0] == 'O' && matrix[1][1] == 'O' && matrix[0][2] == 'O')
-        return 'O';
-
-    return '/';
-
+    for (int i = 0; i < 3; i++) {
+        //check if rows and columns are equal
+        if(matrix[i][0] == matrix[i][1] && matrix[i][0] == matrix[i][2])
+            winner = matrix[i][0];
+        if(matrix[0][i] == matrix[1][i] && matrix[0][i] == matrix[2][i])
+            winner = matrix[0][i];
+    }
+        //check diagonals
+    if (matrix[0][0] ==  matrix[1][1] && matrix[0][0] == matrix[2][2])
+        winner = matrix[0][0];
+    if (matrix[2][0] == matrix[1][1] && matrix[2][0] == matrix[0][2])
+        winner = matrix[2][0];
+    
+    return winner;
 }
 
 int main() {
