@@ -2,10 +2,12 @@
 using namespace std;
 
 char matrix[3][3] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-char player = 'X';
+char currentPlayer = 'X';
 int turnsCounter;
+
+
 void DrawGameboard(){
-    system("clear screen");
+    system("clear");
     cout << "Tic Tac Toe v1.0" << endl;
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
@@ -16,71 +18,71 @@ void DrawGameboard(){
 }
 
 void PlayerInput(){
-    int a;
-    cout << "It's " << player << " turn. Enter a number from the field:";
-    cin >> a;
+    int input;
+    cout << "It's " << currentPlayer << " turn. Enter a number from the field:";
+    cin >> input;
 
-    if (a >= 1 && a <= 9){
-        if (a == 1){
+    if (input >= 1 && input <= 9){
+        if (input == 1){
         if (matrix[0][0] == '1')
-            matrix[0][0] = player;
+            matrix[0][0] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
     }
-    else if (a == 2)
+    else if (input == 2)
         if (matrix[0][1] == '2')
-            matrix[0][1] = player;
+            matrix[0][1] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 3)
+    else if (input == 3)
         if (matrix[0][2] == '3')
-            matrix[0][2] = player;
+            matrix[0][2] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 4)
+    else if (input == 4)
         if (matrix[1][0] == '4')
-            matrix[1][0] = player;
+            matrix[1][0] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 5)
+    else if (input == 5)
         if (matrix[1][1] == '5')
-            matrix[1][1] = player;
+            matrix[1][1] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 6)
+    else if (input == 6)
         if (matrix[1][2] == '6')
-            matrix[1][2] = player;
+            matrix[1][2] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 7)
+    else if (input == 7)
         if (matrix[2][0] == '7')
-            matrix[2][0] = player;
+            matrix[2][0] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 8)
+    else if (input == 8)
         if (matrix[2][1] == '8')
-            matrix[2][1] = player;
+            matrix[2][1] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
-    else if (a == 9)
+    else if (input == 9)
         if (matrix[2][2] == '9')
-            matrix[2][2] = player;
+            matrix[2][2] = currentPlayer;
         else {
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
@@ -92,10 +94,10 @@ void PlayerInput(){
 }
 
 void TogglePlayer(){
-    if (player == 'X')
-        player = 'O';
+    if (currentPlayer == 'X')
+        currentPlayer = 'O';
     else
-        player = 'X';
+        currentPlayer = 'X';
 }
 
 char Win(){
