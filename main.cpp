@@ -20,7 +20,8 @@ void PlayerInput(){
     cout << "It's " << player << " turn. Enter a number from the field:";
     cin >> a;
 
-    if (a == 1){
+    if (a >= 1 && a <= 9){
+        if (a == 1){
         if (matrix[0][0] == '1')
             matrix[0][0] = player;
         else {
@@ -84,6 +85,10 @@ void PlayerInput(){
             cout << "Field is already in use. Try again!" << endl;
             PlayerInput();
         }
+    } else {
+        cout << "Invalid input. Try again!" << endl;
+        return PlayerInput();
+    }
 }
 
 void TogglePlayer(){
