@@ -24,6 +24,14 @@ void PlayerInput(){
     cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Ignore extra characters in input buffer
 
     if (input >= 1 && input <= 9){
+        // int row = (input - 1) / 3 //3 = board_size
+        // int col = (input - 1) % 3 //3 = board_size
+
+        // if(matrix[row][col] == 'X' || matrix[row][col] == 'O'){
+        //     cout << "Field is already in use. Try again!" << endl;
+        //     return PlayerInput();
+        // }
+        
         if (input == 1){
         if (matrix[0][0] == '1')
             matrix[0][0] = currentPlayer;
