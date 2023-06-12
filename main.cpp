@@ -19,8 +19,9 @@ void DrawGameboard(){
 
 void PlayerInput(){
     int input;
-    cout << "It's " << currentPlayer << " turn. Enter a number from the field:";
+    cout << "It's " << currentPlayer << "'s turn. Enter a number from the field:";
     cin >> input;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Ignore extra characters in input buffer
 
     if (input >= 1 && input <= 9){
         if (input == 1){
